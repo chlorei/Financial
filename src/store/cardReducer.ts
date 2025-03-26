@@ -11,11 +11,6 @@ const defaultState = {
 
 export const cardReducer = (state = defaultState, action: CardAction) => {
   switch (action.type) {
-    // case "SET_CARDS":
-    //   return { 
-    //     ...state, 
-    //     cardCollection: Array.isArray(action.payload) ? action.payload : state.cardCollection 
-
     case "ADD_CARD":
       return { 
         ...state, 
@@ -25,7 +20,7 @@ export const cardReducer = (state = defaultState, action: CardAction) => {
     case "REMOVE_CARD":
       return {
         ...state,
-        cardCollection: state.cardCollection.filter((card) => card.id !== action.payload),
+        cardCollection: state.cardCollection.filter((card) => card.id !== action.payload as unknown),
       };
 
     default:
